@@ -10,11 +10,19 @@ export default function RestaurantItem({ restaurant }) {
         }}
         style={styles.image}
       />
-      <Text style={styles.title}>{restaurant.name}</Text>
-      <Text style={styles.subTitle}>
-        ${restaurant.deliveryFee} &#8226; {restaurant.minDeliveryTime}~
-        {restaurant.maxDeliveryTime} minutes
-      </Text>
+      <View style={styles.row}>
+        <View>
+          <Text style={styles.title}>{restaurant.name}</Text>
+          <Text style={styles.subTitle}>
+            ${restaurant.deliveryFee} &#8226; {restaurant.minDeliveryTime}~
+            {restaurant.maxDeliveryTime} min
+          </Text>
+        </View>
+
+        <View style={styles.rating}>
+          <Text>{restaurant.rating}</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -36,5 +44,15 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "grey",
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  rating: {
+    marginLeft: "auto",
+    backgroundColor: "lightgrey",
+    padding: 5,
+    borderRadius: 5,
   },
 });
