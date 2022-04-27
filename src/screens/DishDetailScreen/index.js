@@ -1,12 +1,14 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import restaurants from "../../../assets/data/restaurants.json";
 
 const dish = restaurants[0].dishes[0];
 
 export default function DishDetailScreen() {
   const [quantity, setQuantity] = useState(0);
+  const navigation = useNavigation();
 
   const handleMinusClick = () => {
     if (quantity > 0) {
@@ -41,9 +43,13 @@ export default function DishDetailScreen() {
         />
       </View>
 
-      <TouchableOpacity style={styles.button} disabled={!quantity}>
+      <TouchableOpacity
+        style={styles.button}
+        disabled={!quantity}
+        onPress={() => navigation.navigate("Basket")}
+      >
         <Text style={styles.buttonText}>
-          Add {quantity} items to a cart (${getTotal().toFixed(2)})
+          Add {quantity} items to a cart &#8226; ${getTotal().toFixed(2)}
         </Text>
       </TouchableOpacity>
     </View>

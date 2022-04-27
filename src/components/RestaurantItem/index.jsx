@@ -1,9 +1,17 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
 export default function RestaurantItem({ restaurant }) {
+  const navigation = useNavigation();
+  const handleItemPress = () => {
+    navigation.navigate("Restaurant", { id: restaurant.id });
+  };
   return (
-    <View style={styles.restaurantContainer}>
+    <TouchableOpacity
+      style={styles.restaurantContainer}
+      onPress={handleItemPress}
+    >
       <Image
         source={{
           uri: restaurant.image,
@@ -23,7 +31,7 @@ export default function RestaurantItem({ restaurant }) {
           <Text>{restaurant.rating}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

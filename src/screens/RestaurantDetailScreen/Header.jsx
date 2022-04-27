@@ -4,7 +4,7 @@ import styles from "./styles";
 
 export default function Header({ restaurant }) {
   return (
-    <View>
+    <View style={styles.page}>
       <Image
         source={{ uri: restaurant.image }}
         style={styles.image}
