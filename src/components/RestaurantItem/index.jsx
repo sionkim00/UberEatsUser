@@ -38,7 +38,7 @@ export default function RestaurantItem({ restaurant }) {
 const styles = StyleSheet.create({
   restaurantContainer: {
     width: "100%",
-    marginVertical: 10,
+    marginBottom: 10,
   },
   image: {
     width: "100%",
