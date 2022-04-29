@@ -40,3 +40,9 @@ amplify/backend/tags.json
 amplify/backend/types/amplify-dependent-resources-ref.d.ts
 amplify/cli.json
 amplify/team-provider-info.json
+amplify/backend/api/UberEats/cli-inputs.json
+amplify/backend/api/UberEats/parameters.json
+amplify/backend/api/UberEats/resolvers/README.md
+amplify/backend/api/UberEats/schema.graphql
+amplify/backend/api/UberEats/stacks/CustomResources.json
+amplify/backend/api/UberEats/transform.conf.json

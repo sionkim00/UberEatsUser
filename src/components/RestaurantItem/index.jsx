@@ -2,6 +2,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
+const DEFAULT_IMAGE =
+  "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg";
+
 export default function RestaurantItem({ restaurant }) {
   const navigation = useNavigation();
   const handleItemPress = () => {
@@ -14,7 +17,9 @@ export default function RestaurantItem({ restaurant }) {
     >
       <Image
         source={{
-          uri: restaurant.image,
+          uri: restaurant.image.startsWith("http")
+            ? restaurant.image
+            : DEFAULT_IMAGE,
         }}
         style={styles.image}
       />
@@ -22,13 +27,13 @@ export default function RestaurantItem({ restaurant }) {
         <View>
           <Text style={styles.title}>{restaurant.name}</Text>
           <Text style={styles.subTitle}>
-            ${restaurant.deliveryFee} &#8226; {restaurant.minDeliveryTime}~
-            {restaurant.maxDeliveryTime} min
+            ${restaurant.deliveryFee.toFixed(2)} &#8226;{" "}
+            {restaurant.minDeliveryTime}~{restaurant.maxDeliveryTime} min
           </Text>
         </View>
 
         <View style={styles.rating}>
-          <Text>{restaurant.rating}</Text>
+          <Text>{restaurant.rating.toFixed(1)}</Text>
         </View>
       </View>
     </TouchableOpacity>
